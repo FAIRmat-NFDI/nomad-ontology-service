@@ -28,6 +28,7 @@ dependencies = [
     "nomad-lab>=1.4.1",
     "owlready2",
     "fastapi",
+    "rapidfuzz",
 ]
 
 [project.urls]
