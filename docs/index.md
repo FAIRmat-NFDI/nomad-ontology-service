@@ -4,15 +4,21 @@ NOMAD plugin for registering ontology service and exposing domain-specific ontol
 
 ## Introduction
 
-!!! note "Attention"
-    TODO
+`nomad-ontology-service` mounts a generic FastAPI service into a NOMAD (Oasis) instance for querying OWL ontologies: fuzzy label search, superclass lookup, and descendant lookup, all filtered by a configurable set of rules. Each domain plugin registers its own ontology (an OWL file plus a few filtering rules) under its own name in `nomad.yaml`, and queries it over HTTP during entry normalization to attach semantic metadata to its own data.
+
+Two plugins currently use it as worked examples of very different domains:
+
+- [`pynxtools`](https://github.com/FAIRmat-NFDI/pynxtools) registers the NeXus ontology (merged with the PaNET and ESRFET technique ontologies) to tag processed NeXus entries with standardized experimental-technique labels.
+- [`nomad-tajine-plugin`](https://github.com/FAIRmat-NFDI/nomad-tajine-plugin) registers [FoodOn](https://foodon.org/) to resolve free-text ingredient names to a formal food-classification hierarchy.
+
+Adding a third ontology for a new domain requires no code changes to this service -- just a new entry under `ontologies` in `nomad.yaml`. See the [tutorial](tutorial/tutorial.md) for a worked example, and the [explanation](explanation/explanation.md) page for how it all fits together.
 
 <div markdown="block" class="home-grid">
 <div markdown="block">
 
 ### Tutorial
 
-TODO
+Walks through registering a new ontology and querying it end to end.
 
 - [Tutorial](tutorial/tutorial.md)
 
