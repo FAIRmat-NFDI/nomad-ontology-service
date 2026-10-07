@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/food#"
+     xml:base="http://example.org/food"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
+    <owl:Ontology rdf:about="http://example.org/food"/>
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasExactSynonym"/>
+
+    <owl:Class rdf:about="http://example.org/food#FOOD_0001">
+        <rdfs:label>food product</rdfs:label>
+    </owl:Class>
+
+    <!-- Declared before the spices so it wins fuzzy-score ties by default;
+         the head-noun tiebreak has to override that. -->
+    <owl:Class rdf:about="http://example.org/food#FOOD_0005">
+        <rdfs:subClassOf rdf:resource="http://example.org/food#FOOD_0001"/>
+        <rdfs:label>ground</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/food#FOOD_0002">
+        <rdfs:subClassOf rdf:resource="http://example.org/food#FOOD_0001"/>
+        <rdfs:label>spice</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/food#FOOD_0003">
+        <rdfs:subClassOf rdf:resource="http://example.org/food#FOOD_0002"/>
+        <rdfs:label>cumin</rdfs:label>
+        <oboInOwl:hasExactSynonym>jeera</oboInOwl:hasExactSynonym>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/food#FOOD_0004">
+        <rdfs:subClassOf rdf:resource="http://example.org/food#FOOD_0002"/>
+        <rdfs:label>coriander</rdfs:label>
+    </owl:Class>
+
+    <owl:Class rdf:about="http://example.org/food#FOOD_0006">
+        <rdfs:subClassOf rdf:resource="http://example.org/food#FOOD_0001"/>
+        <rdfs:label>an</rdfs:label>
+    </owl:Class>
+</rdf:RDF>

@@ -1,6 +1,7 @@
 from nomad.config.models.plugins import APIEntryPoint
 from pydantic import BaseModel, Field
 
+
 class OntologyConfig(BaseModel):
     name: str
     owl_url: str

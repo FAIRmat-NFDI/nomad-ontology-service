@@ -1,14 +1,15 @@
+import logging
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
 from nomad.config import config
-from owlready2 import ThingClass, get_ontology, Ontology, Restriction, And, Or
-from owlready2.base import rdf_type, owl_class
-from nomad_ontology_service import OntologyConfig
-from pathlib import Path
-from rapidfuzz import fuzz, process, utils as rf_utils
-import logging
+from owlready2 import And, Ontology, Or, Restriction, ThingClass, get_ontology
+from owlready2.base import owl_class, rdf_type
+from rapidfuzz import fuzz, process
+from rapidfuzz import utils as rf_utils
 
-from nomad_ontology_service.apis import app
+from nomad_ontology_service import OntologyConfig
 
 logger = logging.getLogger(__name__)
 entry_point = config.get_plugin_entry_point("nomad_ontology_service:ontology_service")
