@@ -14,6 +14,8 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # gh-deploy pushes the gh-pages branch
 
     steps:
       - name: Checkout Repository
